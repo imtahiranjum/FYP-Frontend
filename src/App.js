@@ -17,7 +17,7 @@ function App() {
         <ThemeProvider> theme={theme}
           <CssBaseline />
           <Routes>
-            <Route element={<layout />}>
+            <Route element={<Layout />}>
               <Route path='/' element = {<Navigate to="/dashboard" replace />} />
               <Route path='/dashboard' element = {<Dashboard />} />
             </Route>
