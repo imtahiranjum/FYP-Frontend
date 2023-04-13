@@ -1,12 +1,12 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import { themeSettings } from './theme';
-import React, { Component }  from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { useMemo } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Dashboard from '/client/src/scenes/dashboard/index.jsx';
-import Layout from '/client/src/scenes/layout/index.jsx';
+import Dashboard from 'scenes/dashboard';
+import Layout from 'scenes/layout';
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
