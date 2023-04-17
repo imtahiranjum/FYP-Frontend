@@ -5,8 +5,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useMemo } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Dashboard from 'scenes/dashboard';
-import Layout from 'scenes/layout';
+import Dashboard from 'scenes/dashboard/index';
+import Layout from 'scenes/layout/index';
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <ThemeProvider> theme={theme}
+        <ThemeProvider theme={theme}>
           <CssBaseline />
           <Routes>
             <Route element={<Layout />}>
@@ -26,6 +26,6 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
