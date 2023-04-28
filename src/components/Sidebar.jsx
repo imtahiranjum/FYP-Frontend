@@ -131,8 +131,10 @@ const Sidebar = ({
             <Box m="1.5rem 2rem 2rem 3rem">
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
-                  <Typography variant="h4" fontWeight="bold">
-                    ECOMVISION
+                  <Typography variant="h4" fontWeight="bold" sx={{
+                        color: theme.palette.secondary.main
+                      }}>
+                    eFarm
                   </Typography>
                 </Box>
                 {!isNonMobile && (
@@ -146,8 +148,18 @@ const Sidebar = ({
               {navItems.map(({ text, icon }) => {
                 if (!icon) {
                   return (
-                    <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem" }}>
+                    <Typography
+                      key={text}
+                      sx={{
+                        m: "2.25rem 0 1rem 3rem",
+                        color:
+                          active === lcText
+                            ? theme.palette.primary.light
+                            : theme.palette.secondary[200],
+                      }}
+                    >
                       {text}
+                      <Divider />
                     </Typography>
                   );
                 }
@@ -176,15 +188,31 @@ const Sidebar = ({
                           ml: "2rem",
                           color:
                             active === lcText
-                              ? theme.palette.primary[600]
+                              ? theme.palette.primary.main
                               : theme.palette.secondary[200],
                         }}
                       >
                         {icon}
                       </ListItemIcon>
-                      <ListItemText primary={text} />
+                      <ListItemText
+                        primary={text}
+                        sx={{
+                          color:
+                            active === lcText
+                              ? theme.palette.primary.main
+                              : theme.palette.secondary[200],
+                        }}
+                      />
                       {active === lcText && (
-                        <ChevronRightOutlined sx={{ ml: "auto" }} />
+                        <ChevronRightOutlined
+                          sx={{
+                            ml: "auto",
+                            color:
+                              active === lcText
+                                ? theme.palette.primary.main
+                                : theme.palette.secondary[200],
+                          }}
+                        />
                       )}
                     </ListItemButton>
                   </ListItem>
@@ -193,7 +221,7 @@ const Sidebar = ({
             </List>
           </Box>
 
-          <Box position="absolute" bottom="2rem">
+          <Box marginBottom="2rem">
             <Divider />
             <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
               <Box
@@ -218,7 +246,6 @@ const Sidebar = ({
                   sx={{ color: theme.palette.secondary[200] }}
                 >
                   Manager
-                  {/* {user.occupation} */}
                 </Typography>
               </Box>
               <SettingsOutlined
