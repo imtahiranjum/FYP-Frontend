@@ -13,6 +13,10 @@ import {
   useTheme,
 } from "@mui/material";
 import {
+  FoodBankOutlined,
+  SupportOutlined,
+  AddCircleOutlineOutlined,
+  MedicalInformationOutlined,
   SettingsOutlined,
   ChevronLeft,
   ChevronRightOutlined,
@@ -20,13 +24,9 @@ import {
   ShoppingCartOutlined,
   Groups2Outlined,
   ReceiptLongOutlined,
-  PublicOutlined,
-  PointOfSaleOutlined,
   TodayOutlined,
-  CalendarMonthOutlined,
-  AdminPanelSettingsOutlined,
-  TrendingUpOutlined,
   PieChartOutlined,
+  SellOutlined,
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -39,56 +39,65 @@ const navItems = [
     icon: <HomeOutlined />,
   },
   {
-    text: "Client Facing",
+    text: "User Management",
     icon: null,
   },
   {
-    text: "Products",
-    icon: <ShoppingCartOutlined />,
-  },
-  {
-    text: "Customers",
+    text: "Staff",
     icon: <Groups2Outlined />,
   },
   {
-    text: "Transactions",
+    text: "Doctors",
+    icon: <MedicalInformationOutlined />,
+  },
+  {
+    text: "Cattle Management",
+    icon: null,
+  },
+  {
+    text: "Health Records",
+    icon: <ShoppingCartOutlined />,
+  },
+  {
+    text: "Feed Management",
+    icon: <FoodBankOutlined />,
+  },
+  {
+    text: "Growth Records",
     icon: <ReceiptLongOutlined />,
   },
   {
-    text: "Geography",
-    icon: <PublicOutlined />,
+    text: "Cattle Onboarding",
+    icon: <AddCircleOutlineOutlined />,
   },
+  
   {
-    text: "Sales",
+    text: "Marketplace Management",
     icon: null,
   },
   {
-    text: "Overview",
-    icon: <PointOfSaleOutlined />,
+    text: "View On Sale Cattles",
+    icon: <SellOutlined />,
   },
   {
-    text: "Daily",
+    text: "Add/Reomove Cattle",
+    icon: <AddCircleOutlineOutlined />,
+  },
+  {
+    text: "Farm Management",
+    icon: null,
+  },
+  {
+    text: "Supplies",
+    icon: <SupportOutlined />,
+  },
+  {
+    text: "Tools Inventory",
     icon: <TodayOutlined />,
   },
   {
-    text: "Monthly",
-    icon: <CalendarMonthOutlined />,
-  },
-  {
-    text: "Breakdown",
-    icon: <PieChartOutlined />,
-  },
-  {
-    text: "Management",
-    icon: null,
-  },
-  {
-    text: "Admin",
-    icon: <AdminPanelSettingsOutlined />,
-  },
-  {
-    text: "Performance",
-    icon: <TrendingUpOutlined />,
+    text: "Medicines and Vaccines",
+    icon: <MedicalInformationOutlined />,
   },
 ];
 
