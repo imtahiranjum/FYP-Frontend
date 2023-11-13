@@ -32,72 +32,39 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
 import profileImage from "assets/profile.jpeg";
+import efarmlogo from "assets/efarmlogo.png";
 
 const navItems = [
   {
     text: "Dashboard",
+    value: "Dashboard",
     icon: <HomeOutlined />,
   },
-  {
-    text: "User Management",
-    icon: null,
-  },
-  {
-    text: "Staff",
-    icon: <Groups2Outlined />,
-  },
-  {
-    text: "Doctors",
-    icon: <MedicalInformationOutlined />,
-  },
-  {
-    text: "Cattle Management",
-    icon: null,
-  },
-  {
-    text: "Health Records",
-    icon: <ShoppingCartOutlined />,
-  },
-  {
-    text: "Feed Management",
-    icon: <FoodBankOutlined />,
-  },
-  {
-    text: "Growth Records",
-    icon: <ReceiptLongOutlined />,
-  },
-  {
-    text: "Cattle Onboarding",
-    icon: <AddCircleOutlineOutlined />,
-  },
-  
+  // {
+  //   text: "User Management",
+  //   value: "User Management",
+  //   icon: null,
+  // },
+  // {
+  //   text: "Users",
+  //   value: "Staff",
+  //   icon: <Groups2Outlined />,
+  // },
+
   {
     text: "Marketplace Management",
+    value: "Marketplace Management",
     icon: null,
   },
   {
     text: "View On Sale Cattles",
+    value: "onsalecattle",
     icon: <SellOutlined />,
   },
   {
     text: "Add/Reomove Cattle",
+    value: "cattlelist",
     icon: <AddCircleOutlineOutlined />,
-  },
-  {
-    text: "Farm Management",
-    icon: null,
-  },
-  {
-    text: "Supplies",
-    icon: <SupportOutlined />,
-  },
-  {
-    text: "Tools Inventory",
-    icon: <TodayOutlined />,
-  },
-  {
-    text: "Medicines and Vaccines",
-    icon: <MedicalInformationOutlined />,
   },
 ];
 
@@ -138,14 +105,30 @@ const Sidebar = ({
         >
           <Box width="100%">
             <Box m="1.5rem 2rem 2rem 3rem">
+              <Box
+                display="flex"
+                alignItems="center"
+                gap="0.5rem"
+                margin="2rem"
+              >
+                <img width={100} height={100} src={efarmlogo} />
+              </Box>
+              <Typography
+                display="flex"
+                alignItems="center"
+                gap="0.5rem"
+                marginLeft="3rem"
+                variant="h4"
+                fontWeight="bold"
+                sx={{
+                  color: theme.palette.secondary.main,
+                }}
+              >
+                eFarm
+              </Typography>
+            </Box>
+            <Box m="1.5rem 2rem 2rem 3rem">
               <FlexBetween color={theme.palette.secondary.main}>
-                <Box display="flex" alignItems="center" gap="0.5rem">
-                  <Typography variant="h4" fontWeight="bold" sx={{
-                        color: theme.palette.secondary.main
-                      }}>
-                    eFarm
-                  </Typography>
-                </Box>
                 {!isNonMobile && (
                   <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                     <ChevronLeft />
@@ -154,7 +137,7 @@ const Sidebar = ({
               </FlexBetween>
             </Box>
             <List>
-              {navItems.map(({ text, icon }) => {
+              {navItems.map(({ text, icon, value }) => {
                 if (!icon) {
                   return (
                     <Typography
@@ -172,7 +155,7 @@ const Sidebar = ({
                     </Typography>
                   );
                 }
-                const lcText = text.toLowerCase();
+                const lcText = value.toLowerCase();
 
                 return (
                   <ListItem key={text} disablePadding>
