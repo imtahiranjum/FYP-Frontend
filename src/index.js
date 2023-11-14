@@ -7,7 +7,6 @@ import globalReducer from 'state';
 import { Provider } from 'react-redux';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { api } from 'state/api';
-import { getDefaultGridFilterModel } from '@mui/x-data-grid';
 
 
 const store = configureStore({
@@ -27,4 +26,3 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-
