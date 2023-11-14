@@ -15,7 +15,11 @@ export const api = createApi({
   ],
   endpoints: (build) => ({
     getUser: build.query({
-      query: (id) => `general/user/${id}`,
+      query: (id) => ({
+        url: `user/`,
+        method: `GET`,
+        body: id
+      }),
       providesTags: ["User"],
     }),
     getOnSaleCattle: build.query({
@@ -32,18 +36,19 @@ export const api = createApi({
     }),
     addOneCattleToSale: build.mutation({
       query: (title, description, price, cattle_id) => ({
-        url:'onsalecattle/addcattletosale',
+        url: "onsalecattle/addcattletosale",
         method: "POST",
-        body: title, description, price, cattle_id
+        body: title,
+        description,
+        price,
+        cattle_id,
       }),
       invalidatesTags: ["AllCattle"],
     }),
     updateCattleOnSaleStatus: build.mutation({
-      query: ({cattle_id, to_add}) => ({
-
-        url:`onsalecattle/updatecattleonsalestatus/${cattle_id}&${to_add}`,
+      query: ({ cattle_id, to_add }) => ({
+        url: `onsalecattle/updatecattleonsalestatus/${cattle_id}&${to_add}`,
         method: "PATCH",
-
       }),
       invalidatesTags: ["AllCattle"],
     }),
@@ -61,16 +66,23 @@ export const api = createApi({
     }),
     removeCattleFromSale: build.mutation({
       query: (id) => ({
-        url:`onsalecattle/removefromsale/${id}`,
+        url: `onsalecattle/removefromsale/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["OnSaleCattle"],
     }),
     addNewCattle: build.mutation({
       query: (name, images, gender, age, breed, color, weight, category) => ({
-        url:`cattle/create`,
+        url: `cattle/create`,
         method: "POST",
-        body: name, images, gender, age, breed, color, weight, category
+        body: name,
+        images,
+        gender,
+        age,
+        breed,
+        color,
+        weight,
+        category,
       }),
       invalidatesTags: ["AllCattle"],
     }),
@@ -117,11 +129,10 @@ export const {
   useRemoveCattleFromSaleMutation,
   useUpdateCattleOnSaleStatusMutation,
   useAddNewCattleMutation,
-  useSetProductQuery,
   useGetEmployeeQuery,
   useGetAdminsQuery,
   useGetGeographyQuery,
   useGetSalesQuery,
   useGetTransactionsQuery,
-  useGetUserPerformanceQuery
+  useGetUserPerformanceQuery,
 } = api;
