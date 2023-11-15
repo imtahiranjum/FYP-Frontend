@@ -29,31 +29,6 @@ const Dashboard = () => {
   const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
   const { data, isLoading } = useGetDashboardQuery();
 
-  const columns = [
-    {
-      field: "_id",
-      headerName: "ID",
-      flex: 1,
-    },
-    {
-      field: "phone_number",
-      
-      headerName: "phone_number",
-      flex: 1,
-    },
-    {
-      field: "createdAt",
-      headerName: "CreatedAt",
-      flex: 1,
-    },
-    {
-      field: "country",
-      headerName: "Country",
-      flex: 1,
-    },
-
-  ];
-
   return (
     <Box m="1.5rem 2.5rem">
       <FlexBetween>
@@ -86,8 +61,8 @@ const Dashboard = () => {
         }}
       >
         <StatBox
-          title="Total Staff"
-          value={data && data.totalStaff}
+          title="Total Cattle"
+          value={data && data.totalCattle}
           increase="+100%"
           description="Since Last Yeat"
           icon={
@@ -97,8 +72,8 @@ const Dashboard = () => {
           }
         />
         <StatBox
-          title="Total Doctors"
-          value={data && data.totalDoctors}
+          title="Total Users"
+          value={data && data.totalUsers}
           increase="+100%"
           description="Since Last Year"
           icon={
@@ -107,7 +82,7 @@ const Dashboard = () => {
             />
           }
         />
-        <Box
+        {/* <Box
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={theme.palette.background.alt}
@@ -115,10 +90,10 @@ const Dashboard = () => {
           borderRadius="0.55rem"
         >
           <OverviewChart view="sales" isDashboard={true} />
-        </Box>
+        </Box> */}
         <StatBox
-          title="Monthly Hired Staff"
-          value="1"
+          title="Total Indiviual Sellers"
+          value={data && data.totalIndividualSellers}
           increase="+100%"
           description="Since last month"
           icon={
@@ -128,8 +103,8 @@ const Dashboard = () => {
           }
         />
         <StatBox
-          title="Monthly Hired Doctors"
-          value={data && data.thisMonthDoctorsHired}
+          title="Total Farm Sellers"
+          value={data && data.totalFarmSellers}
           increase="+100%"
           description="Since last month"
           icon={
@@ -168,14 +143,14 @@ const Dashboard = () => {
             },
           }}
         >
-          <DataGrid
+          {/* <DataGrid
             loading={isLoading || !data}
             getRowId={(row) => row._id}
-            rows={(data && data.staff && data.doctors) || []}
+            rows={(data && data.users && data.doctors) || []}
             columns={columns}
-          />
+          /> */}
         </Box>
-        <Box
+        {/* <Box
           gridColumn="span 4"
           gridRow="span 3"
           backgroundColor={theme.palette.background.alt}
@@ -193,7 +168,7 @@ const Dashboard = () => {
           >
             Breakdown of real stats via category for farm.
           </Typography>
-        </Box>
+        </Box> */}
       </Box>
     </Box>
   );
