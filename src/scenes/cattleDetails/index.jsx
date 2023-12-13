@@ -34,7 +34,6 @@ const CattleCard = ({
   weight,
   age,
   is_boarded,
-  is_onsale,
   category,
   health,
   feed,
@@ -51,7 +50,6 @@ const CattleCard = ({
     weight,
     age,
     is_boarded,
-    is_onsale,
     category,
     health,
     feed,
@@ -59,12 +57,13 @@ const CattleCard = ({
     farm,
   };
   const theme = useTheme();
-  const buttonState = is_onsale ? "Remove From Sale" : "Add to Sale";
-  const buttonColorState = is_onsale ? "red" : theme.palette.secondary[300];
+  const buttonState = "Remove From Sale";
+  const buttonColorState = "red" ;
   const [open, setOpen] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
   const [agree, setAgree] = useState(false);
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const [is_onsale, setIsOnSale] = useState(false);
 
   const [removeCattleFromSale] = useRemoveCattleFromSaleMutation();
   const [updateCattleOnSaleStatus] = useUpdateCattleOnSaleStatusMutation();
@@ -284,13 +283,13 @@ const CattleList = () => {
               weight,
               age,
               is_boarded,
-              is_onsale,
               category,
               health,
               feed,
               device,
               farm,
             }) => (
+
               <CattleCard
                 key={_id}
                 _id={_id}
@@ -299,7 +298,6 @@ const CattleList = () => {
                 images={images}
                 color={color}
                 weight={weight}
-                is_onsale={is_onsale}
                 age={age}
                 is_boarded={is_boarded}
                 category={category}

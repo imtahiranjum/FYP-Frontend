@@ -27,7 +27,7 @@ export const api = createApi({
       providesTags: ["OnSaleCattle"],
     }),
     getAllCattle: build.query({
-      query: () => `cattle/all`,
+      query: () => `onsalecattle/`,
       providesTags: ["AllCattle"],
     }),
     getOneCattle: build.query({

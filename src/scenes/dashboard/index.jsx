@@ -59,8 +59,8 @@ const Dashboard = () => {
         }}
       >
         <StatBox
-          title="Total Cattle"
-          value={data && data.totalCattle}
+          title="Total On-Sale Cattle"
+          value={data && data.totalOnSaleCattle}
           increase="+100%"
           description="Since Last Yeat"
           icon={
@@ -90,19 +90,8 @@ const Dashboard = () => {
           <OverviewChart view="sales" isDashboard={true} />
         </Box> */}
         <StatBox
-          title="Total Indiviual Sellers"
-          value={data && data.totalIndividualSellers}
-          increase="+100%"
-          description="Since last month"
-          icon={
-            <PersonAdd
-              sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
-            />
-          }
-        />
-        <StatBox
-          title="Total Farm Sellers"
-          value={data && data.totalFarmSellers}
+          title="Total Registered Sellers"
+          value={data && data.totalSellers}
           increase="+100%"
           description="Since last month"
           icon={
